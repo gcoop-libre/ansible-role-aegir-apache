@@ -1,5 +1,5 @@
 ---
 aegir_apache_sudoers_file: /etc/sudoers
-aegir_apache_user_in_web_group: True
+aegir_apache_user_in_apache_group: True
 
 aegir_user_home: /var/aegir

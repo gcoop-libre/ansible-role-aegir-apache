@@ -1,6 +1,6 @@
 ---
 aegir_apache_control: /usr/sbin/apachectl
-aegir_apache_user: apache
+aegir_apache_group: apache
 
 php_packages:
   - php55

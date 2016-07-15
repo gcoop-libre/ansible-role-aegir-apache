@@ -17,7 +17,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The path of the sudoers file where the Aegir system user will be added, so it can restart Apache after changing the VHosts.
 
-    aegir_apache_user_in_web_group: True
+    aegir_apache_user_in_apache_group: True
 
 This property will add the Aegir system user to the Apache system group.
 
