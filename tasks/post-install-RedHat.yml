@@ -5,6 +5,7 @@
     dest: "{{ apache_conf_path }}/{{ aegir_user_name }}.conf"
     state: link
     force: yes
+  notify: restart apache
 
 - name: Setup | REDHAT | Symbolic link to add PHP to PATH.
   file:

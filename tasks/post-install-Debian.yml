@@ -5,3 +5,4 @@
     dest: "{{ apache_conf_path }}/conf-enabled/{{ aegir_user_name }}.conf"
     state: link
     force: yes
+  notify: restart apache
