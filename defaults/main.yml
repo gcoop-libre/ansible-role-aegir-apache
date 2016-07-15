@@ -2,4 +2,8 @@
 aegir_apache_sudoers_file: /etc/sudoers
 aegir_apache_user_in_apache_group: True
 
+apache_create_vhosts: False
+apache_remove_default_vhost: True
+apache_vhosts: []
+
 aegir_user_home: /var/aegir
