@@ -1,6 +1,4 @@
 ---
-# Enable Aegir to access as a remote user.
-
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
 
@@ -15,26 +13,21 @@
     group: "{{ aegir_user_name }}"
     force: no
 
-- name: Add aegir user to sudoers to reload apache
+- name: Add Aegir user to sudoers to reload Apache
   lineinfile:
-    dest: '{{ sudoers_file_path }}'
+    dest: '{{ aegir_apache_sudoers_file }}'
     regexp: '^{{ aegir_user_name }}'
-    line: '{{ aegir_user_name }} ALL=NOPASSWD: {{ apache_control }}'
+    line: '{{ aegir_user_name }} ALL=NOPASSWD: {{ aegir_apache_control }}'
     state: present
     validate: 'visudo -cf %s'
     create: yes
 
-- name: Add aegir to apache group.
-  when: aegir_user_in_web_group == 'yes'
+- name: Add Aegir to Apache group.
   user:
     name: "{{ aegir_user_name }}"
-    groups: "{{ apache_user }}"
+    groups: "{{ aegir_apache_group }}"
     append: yes
+  when: aegir_apache_user_in_apache_group
 
-- name: Post Install on RedHat
-  include: "RedHat-post.yml"
-  when: ansible_os_family == "RedHat"
-
-- name: Post Install on Debian
-  include: "Debian-post.yml"
-  when: ansible_os_family == "Debian"
+- name: "Post Install on {{ ansible_os_family }}"
+  include: "post-install-{{ ansible_os_family }}.yml"
