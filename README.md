@@ -21,6 +21,10 @@ The path of the sudoers file where the Aegir system user will be added, so it ca
 
 This property will add the Aegir system user to the Apache system group.
 
+    aegir_apache_extra_vhosts: []
+
+Virtual hosts that would be created besides the basic configuration of Aegir Virtual Hosts. See [Apache role](https://github.com/gcoop-libre/ansible-role-apache) README for the accepted values.
+
 Dependencies
 ------------
 
